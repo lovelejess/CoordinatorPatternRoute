@@ -27,6 +27,7 @@ class FirstViewController: UIViewController {
     }()
 
     var viewModel: FirstTabViewModel!
+    var loginViewRequested: () -> () = {}
     var subscriptions = Set<AnyCancellable>()
 
     override func viewDidLoad() {
@@ -42,12 +43,6 @@ class FirstViewController: UIViewController {
                     self.infoLabel.text = ""
                 }
             }.store(in: &subscriptions)
-
-        viewModel.$didSubmitLogin
-            .sink(receiveValue: { [weak self] didSubmitLogin in
-                
-
-            }).store(in: &subscriptions)
     }
 
     private func addViews() {
@@ -59,7 +54,8 @@ class FirstViewController: UIViewController {
 
     @objc
     private func onButtonPress() {
-
+//        viewModel.didPressButton()
+        loginViewRequested()
     }
 
     private func setupLayoutForInfoLabel() {

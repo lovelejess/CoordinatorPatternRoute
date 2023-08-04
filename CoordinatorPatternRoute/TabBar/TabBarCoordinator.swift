@@ -14,7 +14,8 @@ class TabBarCoordinator: Coordinatable {
 
     init() {
         rootViewController = UITabBarController()
-        rootViewController.tabBar.tintColor = .label
+        rootViewController.tabBar.isTranslucent = true
+        rootViewController.tabBar.backgroundColor = .lightGray
     }
 
     func start() {
@@ -23,7 +24,7 @@ class TabBarCoordinator: Coordinatable {
         childCoordinators.append(firstCoordinator)
 
         let firstViewController = firstCoordinator.rootViewController
-        setup(vc: firstViewController, title: "Home", imageName: "house", selectedImageName: "house.fill")
+        setup(vc: firstViewController, title: "First", imageName: "house", selectedImageName: "house.fill")
 
         rootViewController.viewControllers = [firstViewController]
     }

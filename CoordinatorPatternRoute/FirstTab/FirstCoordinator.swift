@@ -22,12 +22,27 @@ class FirstCoordinator: Coordinatable {
 
     lazy var firstViewController: FirstViewController = {
         let vc = FirstViewController()
-        vc.title = "First"
         vc.viewModel = viewModel
+        vc.title = "First"
+
+        vc.loginViewRequested = { [weak self] in
+            self?.navigate(to: .details)
+        }
+
         return vc
     }()
 
     func start() {
         rootViewController.setViewControllers([firstViewController], animated: false)
+    }
+}
+
+extension FirstCoordinator: FirstCoordinatorDelegate {
+    func navigate(to route: Route.FirstRoute) {
+        switch route {
+        case .details:
+            let loginViewController = UIHostingController(rootView: FirstDetailView(viewModel: viewModel))
+            rootViewController.pushViewController(loginViewController, animated: true)
+        }
     }
 }

@@ -8,8 +8,12 @@
 import Foundation
 
 class FirstTabViewModel: ObservableObject {
+//    weak var coordinatorDelegate: FirstCoordinatorDelegate?
 
     @Published var name: String = ""
     @Published var email: String = ""
-    @Published var didSubmitLogin: Bool = false
+
+//    func didPressButton() {
+//        coordinatorDelegate?.navigate(to: .details)
+//    }
 }
