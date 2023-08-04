@@ -26,8 +26,7 @@ class FirstViewController: UIViewController {
         return button
     }()
 
-    var viewModel: FirstTabViewModel!
-    var loginViewRequested: () -> () = {}
+    var viewModel: FirstViewModel!
     var subscriptions = Set<AnyCancellable>()
 
     override func viewDidLoad() {
@@ -54,8 +53,7 @@ class FirstViewController: UIViewController {
 
     @objc
     private func onButtonPress() {
-//        viewModel.didPressButton()
-        loginViewRequested()
+        viewModel.didPressButton()
     }
 
     private func setupLayoutForInfoLabel() {

@@ -13,7 +13,8 @@ class FirstCoordinator: Coordinatable {
 
     var rootViewController: UINavigationController
     var childCoordinators: [Coordinatable] = []
-    let viewModel = FirstTabViewModel()
+    let firstViewModel = FirstViewModel()
+    let firstDetailViewModel = FirstDetailViewModel()
 
     init() {
         rootViewController = UINavigationController()
@@ -22,13 +23,16 @@ class FirstCoordinator: Coordinatable {
 
     lazy var firstViewController: FirstViewController = {
         let vc = FirstViewController()
-        vc.viewModel = viewModel
+        firstViewModel.coordinatorDelegate = self
+        vc.viewModel = firstViewModel
         vc.title = "First"
 
-        vc.loginViewRequested = { [weak self] in
-            self?.navigate(to: .details)
-        }
+        return vc
+    }()
 
+    lazy var loginViewController: UIHostingController = {
+        firstDetailViewModel.coordinatorDelegate = self
+        let vc = UIHostingController(rootView: FirstDetailView(viewModel: firstDetailViewModel))
         return vc
     }()
 
@@ -41,8 +45,10 @@ extension FirstCoordinator: FirstCoordinatorDelegate {
     func navigate(to route: Route.FirstRoute) {
         switch route {
         case .details:
-            let loginViewController = UIHostingController(rootView: FirstDetailView(viewModel: viewModel))
             rootViewController.pushViewController(loginViewController, animated: true)
+        case .main:
+            rootViewController.popToRootViewController(animated: true)
+            childCoordinators = []
         }
     }
 }

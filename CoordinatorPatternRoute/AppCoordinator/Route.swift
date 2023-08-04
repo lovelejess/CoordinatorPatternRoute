@@ -17,5 +17,6 @@ enum Route: Equatable {
     // All the navigational routes for the First View
     enum FirstRoute: Equatable {
         case details
+        case main
     }
 }

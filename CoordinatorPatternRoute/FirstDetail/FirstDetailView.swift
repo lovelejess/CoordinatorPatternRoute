@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct FirstDetailView: View {
-    
-    @ObservedObject var viewModel: FirstTabViewModel
+    @ObservedObject var viewModel: FirstDetailViewModel
 
     var body: some View {
         VStack {
@@ -18,17 +17,17 @@ struct FirstDetailView: View {
                 .textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("email", text: $viewModel.email)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-//            Button("Submit", action: submitLoginRequested)
+            Button("Submit", action: submitLoginRequested)
         }
     }
 
-//    private func submitLoginRequested() {
-//        viewModel.didSubmitLogin = true
-//    }
+    private func submitLoginRequested() {
+        viewModel.didPressSubmit()
+    }
 }
 
 struct FirstDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FirstDetailView(viewModel: FirstTabViewModel())
+        FirstDetailView(viewModel: FirstDetailViewModel())
     }
 }
