@@ -10,8 +10,7 @@ import Foundation
 class FirstViewModel: ObservableObject {
     weak var coordinatorDelegate: FirstCoordinatorDelegate?
 
-    @Published var name: String = ""
-    @Published var email: String = ""
+    @Published var contactInfo: ContactInfo = ContactInfo(email: "", name: "")
 
     func didPressButton() {
         coordinatorDelegate?.navigate(to: .details)

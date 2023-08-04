@@ -25,6 +25,7 @@
 		1681150F2A7D7F320068B482 /* FirstCoordinatorDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1681150E2A7D7F320068B482 /* FirstCoordinatorDelegate.swift */; };
 		168115112A7D82B00068B482 /* FirstDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115102A7D82B00068B482 /* FirstDetailView.swift */; };
 		168115142A7DAA840068B482 /* FirstDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115132A7DAA840068B482 /* FirstDetailViewModel.swift */; };
+		168115162A7DADE30068B482 /* ContactInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168115152A7DADE30068B482 /* ContactInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		1681150E2A7D7F320068B482 /* FirstCoordinatorDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstCoordinatorDelegate.swift; sourceTree = "<group>"; };
 		168115102A7D82B00068B482 /* FirstDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDetailView.swift; sourceTree = "<group>"; };
 		168115132A7DAA840068B482 /* FirstDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDetailViewModel.swift; sourceTree = "<group>"; };
+		168115152A7DADE30068B482 /* ContactInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				168115072A7D7C2D0068B482 /* FirstViewController.swift */,
 				168115092A7D7C640068B482 /* FirstViewModel.swift */,
 				1681150E2A7D7F320068B482 /* FirstCoordinatorDelegate.swift */,
+				168115152A7DADE30068B482 /* ContactInfo.swift */,
 			);
 			path = FirstTab;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				168114FE2A7D7B230068B482 /* Coordinatable.swift in Sources */,
 				168115142A7DAA840068B482 /* FirstDetailViewModel.swift in Sources */,
 				1681150D2A7D7EC40068B482 /* Route.swift in Sources */,
+				168115162A7DADE30068B482 /* ContactInfo.swift in Sources */,
 				168115082A7D7C2D0068B482 /* FirstViewController.swift in Sources */,
 				168115112A7D82B00068B482 /* FirstDetailView.swift in Sources */,
 				168115032A7D7B720068B482 /* TabBarCoordinator.swift in Sources */,

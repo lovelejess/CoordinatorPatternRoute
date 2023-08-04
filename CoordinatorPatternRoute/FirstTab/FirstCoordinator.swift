@@ -46,7 +46,8 @@ extension FirstCoordinator: FirstCoordinatorDelegate {
         switch route {
         case .details:
             rootViewController.pushViewController(loginViewController, animated: true)
-        case .main:
+        case .main(let contactInfo):
+            firstViewModel.contactInfo = contactInfo
             rootViewController.popToRootViewController(animated: true)
             childCoordinators = []
         }

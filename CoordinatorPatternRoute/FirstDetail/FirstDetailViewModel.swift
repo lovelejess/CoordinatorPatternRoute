@@ -10,10 +10,11 @@ import Foundation
 class FirstDetailViewModel: ObservableObject {
     weak var coordinatorDelegate: FirstCoordinatorDelegate?
 
-    @Published var name: String = ""
-    @Published var email: String = ""
+    var name: String = ""
+    var email: String = ""
 
     func didPressSubmit() {
-        coordinatorDelegate?.navigate(to: .main)
+        let contactInfo = ContactInfo(email: name, name: email)
+        coordinatorDelegate?.navigate(to: .main(contactInfo))
     }
 }

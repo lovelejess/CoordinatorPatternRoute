@@ -14,7 +14,6 @@ class TabBarCoordinator: Coordinatable {
 
     init() {
         rootViewController = UITabBarController()
-        rootViewController.tabBar.isTranslucent = true
         rootViewController.tabBar.backgroundColor = .lightGray
     }
 

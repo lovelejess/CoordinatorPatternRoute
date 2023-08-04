@@ -6,17 +6,17 @@
 //
 
 import Foundation
-enum Route: Equatable {
+enum Route {
     case rootTabBar(TabBarRoute)
 
     // All the navigational routes for the Tabbar
-    enum TabBarRoute: Equatable {
+    enum TabBarRoute {
         case first (FirstRoute)
     }
 
     // All the navigational routes for the First View
-    enum FirstRoute: Equatable {
+    enum FirstRoute {
         case details
-        case main
+        case main(ContactInfo)
     }
 }

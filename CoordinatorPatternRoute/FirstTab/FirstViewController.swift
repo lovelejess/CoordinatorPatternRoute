@@ -18,9 +18,9 @@ class FirstViewController: UIViewController {
     }()
 
     lazy var loginButton: UIButton = {
-       let button = UIButton()
+        let button = UIButton(type: .system)
         button.setTitle("Login", for: .normal)
-        button.setTitleColor(.systemBlue, for: .normal)
+        button.setTitleColor(.black, for: .normal)
         button.addTarget(self, action: #selector(onButtonPress), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -31,15 +31,16 @@ class FirstViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .darkGray
         addViews()
-        viewModel.$email.combineLatest(viewModel.$name)
-            .sink { [weak self] (email, name) in
+        
+        viewModel.$contactInfo
+            .sink { [weak self] (info) in
                 guard let self = self else { return }
-                if name.count + email.count > 0 {
-                    self.infoLabel.text = "\(name) with email: \(email)"
+                if info.name.count + info.email.count > 0 {
+                    self.infoLabel.text = "\(info.name) with email: \(info.email)"
                 } else {
-                    self.infoLabel.text = ""
+                    self.infoLabel.text = "Login to Continue!"
                 }
             }.store(in: &subscriptions)
     }
@@ -60,7 +61,6 @@ class FirstViewController: UIViewController {
         let constraints = [
             infoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 200),
             infoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            infoLabel.widthAnchor.constraint(equalToConstant: 300),
             infoLabel.heightAnchor.constraint(equalToConstant: 60),
         ]
         NSLayoutConstraint.activate(constraints)
